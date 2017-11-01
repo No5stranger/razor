@@ -4,7 +4,7 @@ import "encoding/json"
 import "net/http"
 import "bytes"
 
-var API_URL = "https://www.googleapis.com/urlshortener/v1/url?key="
+var GOOGL_API_URL = "https://www.googleapis.com/urlshortener/v1/url?key="
 
 type Googl struct {
 	ShortUrl string `json:"id"`
@@ -20,7 +20,7 @@ func GenShortUrlByGoogl(key string, url string) *Googl {
 	var reqBody ReqBody
 	reqBody.LongUrl = url
 	jsonBody, _ := json.Marshal(reqBody)
-	apiUrl := API_URL + key
+	apiUrl := GOOGL_API_URL + key
 	req, err := http.NewRequest("POST", apiUrl, bytes.NewBuffer(jsonBody))
 	req.Header.Set("Content-Type", "application/json")
 	client := &http.Client{}
