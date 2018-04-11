@@ -22,6 +22,8 @@ func main() {
 				shortRes := shorteners.GenShortUrlByBitly(key, longUrl)
 				alfred.FormatXML(shortener, shortRes.ShortUrl)
 			}
+		} else {
+			alfred.FormatXML(shortener, longUrl)
 		}
 	}
 }
