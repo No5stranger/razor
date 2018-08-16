@@ -17,6 +17,9 @@ func main() {
 
 	app.Commands = []cli.Command{
 		commands.ShortUrlCommand,
+		commands.FormateGithubEnterpriseCommand,
+		commands.FormatTraceUrlCommand,
+		commands.FormatSearchTraceCommand,
 	}
 	err := app.Run(os.Args)
 	if err != nil {

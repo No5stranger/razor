@@ -24,13 +24,14 @@ var ShorterKeyFlag = cli.StringFlag{
 }
 
 func ShortUrl(c *cli.Context) error {
+	var title = "short url by bitly"
 	url := c.Args().First()
 	if strings.Contains(url, "$") {
 		url = strings.Replace(url, "$", "", -1)
 		shorterRep := shorteners.GenShortUrlByBitly(apiKey, url)
-		alfred.FormatXML("bitly", shorterRep.ShortUrl)
+		alfred.FormatWebXML(title, shorterRep.ShortUrl)
 	} else {
-		alfred.FormatXML("bitly", url)
+		alfred.FormatWebXML(title, url)
 	}
 	return nil
 }

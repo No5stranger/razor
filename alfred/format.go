@@ -17,9 +17,8 @@ type AlfredItem struct {
 	SubTitle string `xml:"subtitle"`
 }
 
-func FormatXML(shortener string, url string) {
+func FormatWebXML(title string, url string) {
 	items := &AlfredItems{Version: "1"}
-	title := "short url by " + shortener
 	items.Item = append(items.Item, AlfredItem{Arg: url, Title: title, SubTitle: url})
 	output, err := xml.Marshal(items)
 	if err != nil {
